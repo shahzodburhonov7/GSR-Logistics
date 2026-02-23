@@ -7,7 +7,7 @@ part 'locations_state.freezed.dart';
 class LocationsBuildable with _$LocationsBuildable {
   const factory LocationsBuildable({
     @Default(false) bool loading,
-    StockPicking? stockPicking
+    List<StockPicking>? stockPicking
   }) = _LocationsBuildable;
 }
 

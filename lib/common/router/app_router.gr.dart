@@ -15,6 +15,12 @@ abstract class _$AppRouter extends RootStackRouter {
 
   @override
   final Map<String, PageFactory> pagesMap = {
+    CategoryRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const CategoryPage(),
+      );
+    },
     DbSelectRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -38,6 +44,12 @@ abstract class _$AppRouter extends RootStackRouter {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: LoginPage(key: args.key),
+      );
+    },
+    LotsRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const LotsPage(),
       );
     },
     OperationsRoute.name: (routeData) {
@@ -77,7 +89,43 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const SplashPage(),
       );
     },
+    ViewDetailsRoute.name: (routeData) {
+      final args = routeData.argsAs<ViewDetailsRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: ViewDetailsPage(
+          args.id,
+          args.name,
+          args.sourceWarehouseId,
+          args.destWarehouseId,
+          args.createDate,
+          args.createUid,
+          args.datePlan,
+          key: args.key,
+        ),
+      );
+    },
+    ViewPlansRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const ViewPlansPage(),
+      );
+    },
   };
+}
+
+/// generated route for
+/// [CategoryPage]
+class CategoryRoute extends PageRouteInfo<void> {
+  const CategoryRoute({List<PageRouteInfo>? children})
+      : super(
+          CategoryRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'CategoryRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for
@@ -163,6 +211,20 @@ class LoginRouteArgs {
   String toString() {
     return 'LoginRouteArgs{key: $key}';
   }
+}
+
+/// generated route for
+/// [LotsPage]
+class LotsRoute extends PageRouteInfo<void> {
+  const LotsRoute({List<PageRouteInfo>? children})
+      : super(
+          LotsRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'LotsRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for
@@ -275,6 +337,88 @@ class SplashRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'SplashRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [ViewDetailsPage]
+class ViewDetailsRoute extends PageRouteInfo<ViewDetailsRouteArgs> {
+  ViewDetailsRoute({
+    required int id,
+    required String name,
+    required String sourceWarehouseId,
+    required String destWarehouseId,
+    required String createDate,
+    required String createUid,
+    required String datePlan,
+    Key? key,
+    List<PageRouteInfo>? children,
+  }) : super(
+          ViewDetailsRoute.name,
+          args: ViewDetailsRouteArgs(
+            id: id,
+            name: name,
+            sourceWarehouseId: sourceWarehouseId,
+            destWarehouseId: destWarehouseId,
+            createDate: createDate,
+            createUid: createUid,
+            datePlan: datePlan,
+            key: key,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'ViewDetailsRoute';
+
+  static const PageInfo<ViewDetailsRouteArgs> page =
+      PageInfo<ViewDetailsRouteArgs>(name);
+}
+
+class ViewDetailsRouteArgs {
+  const ViewDetailsRouteArgs({
+    required this.id,
+    required this.name,
+    required this.sourceWarehouseId,
+    required this.destWarehouseId,
+    required this.createDate,
+    required this.createUid,
+    required this.datePlan,
+    this.key,
+  });
+
+  final int id;
+
+  final String name;
+
+  final String sourceWarehouseId;
+
+  final String destWarehouseId;
+
+  final String createDate;
+
+  final String createUid;
+
+  final String datePlan;
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'ViewDetailsRouteArgs{id: $id, name: $name, sourceWarehouseId: $sourceWarehouseId, destWarehouseId: $destWarehouseId, createDate: $createDate, createUid: $createUid, datePlan: $datePlan, key: $key}';
+  }
+}
+
+/// generated route for
+/// [ViewPlansPage]
+class ViewPlansRoute extends PageRouteInfo<void> {
+  const ViewPlansRoute({List<PageRouteInfo>? children})
+      : super(
+          ViewPlansRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'ViewPlansRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

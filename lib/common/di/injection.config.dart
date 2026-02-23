@@ -25,6 +25,8 @@ import 'package:warhouse_qr_code/data/start_repo_impl.dart' as _i887;
 import 'package:warhouse_qr_code/domain/auth/auth_repo.dart' as _i444;
 import 'package:warhouse_qr_code/domain/model/storage/storage.dart' as _i235;
 import 'package:warhouse_qr_code/domain/repo/start_repo.dart' as _i888;
+import 'package:warhouse_qr_code/features/category/cubit/category_cubit.dart'
+    as _i586;
 import 'package:warhouse_qr_code/features/db_select/cubit/db_select_cubit.dart'
     as _i865;
 import 'package:warhouse_qr_code/features/locations/cubit/locations_cubit.dart'
@@ -41,6 +43,8 @@ import 'package:warhouse_qr_code/features/service_ws/odoo_socket_service.dart'
     as _i850;
 import 'package:warhouse_qr_code/features/splash/cubit/splash_cubit.dart'
     as _i79;
+import 'package:warhouse_qr_code/features/view_plans/cubit/view_plans_cubit.dart'
+    as _i242;
 
 extension GetItInjectableX on _i174.GetIt {
 // initializes the registration of main-scope dependencies inside of GetIt
@@ -75,6 +79,8 @@ extension GetItInjectableX on _i174.GetIt {
     gh.singleton<_i346.Display>(() => _i483.DisplayImpl());
     gh.factory<_i361.Dio>(
         () => networkModule.dio(gh<_i1063.AuthInterceptor>()));
+    gh.factory<_i586.CategoryCubit>(
+        () => _i586.CategoryCubit(gh<_i235.Storage>()));
     gh.factory<_i116.AuthApi>(() => _i116.AuthApi(
           gh<_i361.Dio>(),
           storage: gh<_i235.Storage>(),
@@ -82,6 +88,10 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i444.AuthRepository>(() => _i482.AuthRepoImpl(
           gh<_i116.AuthApi>(),
           gh<_i235.Storage>(),
+        ));
+    gh.factory<_i242.ViewPlansCubit>(() => _i242.ViewPlansCubit(
+          gh<_i235.Storage>(),
+          gh<_i444.AuthRepository>(),
         ));
     gh.factory<_i472.LocationsCubit>(() => _i472.LocationsCubit(
           gh<_i444.AuthRepository>(),

@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:warhouse_qr_code/features/category/category_page.dart';
 import 'package:warhouse_qr_code/features/db_select/db_select_page.dart';
 import 'package:warhouse_qr_code/features/locations/locations_page.dart';
 import 'package:warhouse_qr_code/features/login/login_page.dart';
@@ -8,6 +9,9 @@ import 'package:warhouse_qr_code/features/products/products_page.dart';
 import 'package:warhouse_qr_code/features/scanner/scanner_page.dart';
 import 'package:warhouse_qr_code/features/splash/splash_page.dart';
 import 'package:auto_route/auto_route.dart';
+import 'package:warhouse_qr_code/features/view_plans/lots_page.dart';
+import 'package:warhouse_qr_code/features/view_plans/view_details_page.dart';
+import 'package:warhouse_qr_code/features/view_plans/view_plans_page.dart';
 
 part 'app_router.gr.dart';
 
@@ -23,5 +27,9 @@ class AppRouter extends _$AppRouter {
     AutoRoute(page: ProductsRoute.page),
     AutoRoute(page: ScannerRoute.page),
     AutoRoute(page: RegisterRoute.page),
+    AutoRoute(page: CategoryRoute.page),
+    AutoRoute(page: ViewPlansRoute.page),
+    AutoRoute(page: ViewDetailsRoute.page),
+    AutoRoute(page: LotsRoute.page),
   ];
 }

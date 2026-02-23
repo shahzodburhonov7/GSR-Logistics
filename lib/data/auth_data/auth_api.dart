@@ -66,36 +66,73 @@ class AuthApi {
     );
   }
 
-  Future<Response> stockPicking({required int id}) {
+  Future<Response> getPlans({required String state}) {
     return _dio.post(
       Constants.apiGetHome,
       data: {
         "params": {
-          "model": "stock.picking",
+          "model": "delivery.plan",
           "method": "search_read",
           "args": [
             [
-              ["picking_type_id", "=", id],
-              ["state", "=", "assigned"],
+              ["state", "=",  state]
             ],
           ],
           "kwargs": {
             "fields": [
               "id",
               "name",
-              "partner_id",
-              "state",
-              "scheduled_date",
-              "date_deadline",
               "create_uid",
-              "car_number",
-              "car_arrival_time",
+              "date_plan",
+              "source_warehouse_id",
+              "dest_warehouse_id",
+              "create_date",
+              "responsible_user_id",
             ],
           },
         },
       },
     );
   }
+  Future<Response> getPlansLine({required int planId}) {
+    return _dio.post(
+      Constants.apiGetHome,
+      data: {
+        "params": {
+          "model": "delivery.plan.line",
+          "method": "search_read",
+          "args": [
+            [
+              ["plan_id", "=",  planId]
+            ],
+          ],
+          "kwargs": {
+            "fields": [
+              "id",
+              "product_id",
+              "track_id",
+              "client_id",
+              "pick_qty",
+              "box_volume",
+              "box_weight",
+              "logistic_photo",
+            ],
+          },
+        },
+      },
+    );
+  }
+
+
+  Future<Response> stockPicking({required int id}) {
+    return _dio.post(
+      Constants.apiOrders,
+      data: {
+        "pickingId": id,
+      },
+    );
+  }
+
 
   Future<Response> products({required int id}) {
     return _dio.post(

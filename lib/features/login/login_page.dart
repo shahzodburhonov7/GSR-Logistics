@@ -32,8 +32,7 @@ class LoginPage extends BasePage<LoginCubit, LoginBuildable, LoginListenable> {
         break;
 
       case LoginEffect.success:
-        showSuccessFlushBar("Successfully logged in.").show(context);
-        context.router.replaceAll([OperationsRoute()]);
+        context.router.replaceAll([CategoryRoute()]);
         break;
     }
     super.listener(context, state);

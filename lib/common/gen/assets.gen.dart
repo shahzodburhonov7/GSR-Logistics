@@ -101,11 +101,23 @@ class $AssetsImagesGen {
   /// File path: assets/images/gsr.jpg
   AssetGenImage get gsr => const AssetGenImage('assets/images/gsr.jpg');
 
+  /// File path: assets/images/operation.png
+  AssetGenImage get operation =>
+      const AssetGenImage('assets/images/operation.png');
+
   /// File path: assets/images/splash.png
   AssetGenImage get splash => const AssetGenImage('assets/images/splash.png');
 
+  /// File path: assets/images/stock.png
+  AssetGenImage get stock => const AssetGenImage('assets/images/stock.png');
+
+  /// File path: assets/images/view_plans.png
+  AssetGenImage get viewPlans =>
+      const AssetGenImage('assets/images/view_plans.png');
+
   /// List of all assets
-  List<AssetGenImage> get values => [defaultUser, gsr, splash];
+  List<AssetGenImage> get values =>
+      [defaultUser, gsr, operation, splash, stock, viewPlans];
 }
 
 class $AssetsLocalesGen {

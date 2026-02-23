@@ -8,6 +8,7 @@ import 'package:flutter/foundation.dart';
 class OdooSocketService {
   WebSocket? _socket;
   final String _baseUrl = "https://gsr.sfera-erp.uz";
+  // final String _baseUrl = "http://192.168.100.10:8069";
   // final String _baseUrl = 'https://dovudbek5555-gsr-logistics-dev-27846076.dev.odoo.com';
 
   String? _lastSessionId;

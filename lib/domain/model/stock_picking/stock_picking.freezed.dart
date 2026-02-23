@@ -20,9 +20,23 @@ StockPicking _$StockPickingFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$StockPicking {
-  String? get jsonrpc => throw _privateConstructorUsedError;
-  dynamic get id => throw _privateConstructorUsedError;
-  List<Result>? get result => throw _privateConstructorUsedError;
+  @JsonKey(name: "display_name")
+  String? get displayName => throw _privateConstructorUsedError;
+  int? get id => throw _privateConstructorUsedError;
+  @JsonKey(name: "state")
+  String? get state => throw _privateConstructorUsedError;
+  @JsonKey(name: "partner")
+  String? get partner => throw _privateConstructorUsedError;
+  @JsonKey(name: "scheduled_date")
+  String? get scheduledDate => throw _privateConstructorUsedError;
+  @JsonKey(name: "car")
+  String? get car => throw _privateConstructorUsedError;
+  @JsonKey(name: "car_arrival_time")
+  String? get carArrivalTime => throw _privateConstructorUsedError;
+  @JsonKey(name: "clients")
+  List<String>? get clients => throw _privateConstructorUsedError;
+  @JsonKey(name: "track_ids")
+  List<String>? get trackIds => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -36,7 +50,16 @@ abstract class $StockPickingCopyWith<$Res> {
           StockPicking value, $Res Function(StockPicking) then) =
       _$StockPickingCopyWithImpl<$Res, StockPicking>;
   @useResult
-  $Res call({String? jsonrpc, dynamic id, List<Result>? result});
+  $Res call(
+      {@JsonKey(name: "display_name") String? displayName,
+      int? id,
+      @JsonKey(name: "state") String? state,
+      @JsonKey(name: "partner") String? partner,
+      @JsonKey(name: "scheduled_date") String? scheduledDate,
+      @JsonKey(name: "car") String? car,
+      @JsonKey(name: "car_arrival_time") String? carArrivalTime,
+      @JsonKey(name: "clients") List<String>? clients,
+      @JsonKey(name: "track_ids") List<String>? trackIds});
 }
 
 /// @nodoc
@@ -52,23 +75,53 @@ class _$StockPickingCopyWithImpl<$Res, $Val extends StockPicking>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? jsonrpc = freezed,
+    Object? displayName = freezed,
     Object? id = freezed,
-    Object? result = freezed,
+    Object? state = freezed,
+    Object? partner = freezed,
+    Object? scheduledDate = freezed,
+    Object? car = freezed,
+    Object? carArrivalTime = freezed,
+    Object? clients = freezed,
+    Object? trackIds = freezed,
   }) {
     return _then(_value.copyWith(
-      jsonrpc: freezed == jsonrpc
-          ? _value.jsonrpc
-          : jsonrpc // ignore: cast_nullable_to_non_nullable
+      displayName: freezed == displayName
+          ? _value.displayName
+          : displayName // ignore: cast_nullable_to_non_nullable
               as String?,
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as dynamic,
-      result: freezed == result
-          ? _value.result
-          : result // ignore: cast_nullable_to_non_nullable
-              as List<Result>?,
+              as int?,
+      state: freezed == state
+          ? _value.state
+          : state // ignore: cast_nullable_to_non_nullable
+              as String?,
+      partner: freezed == partner
+          ? _value.partner
+          : partner // ignore: cast_nullable_to_non_nullable
+              as String?,
+      scheduledDate: freezed == scheduledDate
+          ? _value.scheduledDate
+          : scheduledDate // ignore: cast_nullable_to_non_nullable
+              as String?,
+      car: freezed == car
+          ? _value.car
+          : car // ignore: cast_nullable_to_non_nullable
+              as String?,
+      carArrivalTime: freezed == carArrivalTime
+          ? _value.carArrivalTime
+          : carArrivalTime // ignore: cast_nullable_to_non_nullable
+              as String?,
+      clients: freezed == clients
+          ? _value.clients
+          : clients // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
+      trackIds: freezed == trackIds
+          ? _value.trackIds
+          : trackIds // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
     ) as $Val);
   }
 }
@@ -81,7 +134,16 @@ abstract class _$$StockPickingImplCopyWith<$Res>
       __$$StockPickingImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? jsonrpc, dynamic id, List<Result>? result});
+  $Res call(
+      {@JsonKey(name: "display_name") String? displayName,
+      int? id,
+      @JsonKey(name: "state") String? state,
+      @JsonKey(name: "partner") String? partner,
+      @JsonKey(name: "scheduled_date") String? scheduledDate,
+      @JsonKey(name: "car") String? car,
+      @JsonKey(name: "car_arrival_time") String? carArrivalTime,
+      @JsonKey(name: "clients") List<String>? clients,
+      @JsonKey(name: "track_ids") List<String>? trackIds});
 }
 
 /// @nodoc
@@ -95,23 +157,53 @@ class __$$StockPickingImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? jsonrpc = freezed,
+    Object? displayName = freezed,
     Object? id = freezed,
-    Object? result = freezed,
+    Object? state = freezed,
+    Object? partner = freezed,
+    Object? scheduledDate = freezed,
+    Object? car = freezed,
+    Object? carArrivalTime = freezed,
+    Object? clients = freezed,
+    Object? trackIds = freezed,
   }) {
     return _then(_$StockPickingImpl(
-      jsonrpc: freezed == jsonrpc
-          ? _value.jsonrpc
-          : jsonrpc // ignore: cast_nullable_to_non_nullable
+      displayName: freezed == displayName
+          ? _value.displayName
+          : displayName // ignore: cast_nullable_to_non_nullable
               as String?,
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as dynamic,
-      result: freezed == result
-          ? _value._result
-          : result // ignore: cast_nullable_to_non_nullable
-              as List<Result>?,
+              as int?,
+      state: freezed == state
+          ? _value.state
+          : state // ignore: cast_nullable_to_non_nullable
+              as String?,
+      partner: freezed == partner
+          ? _value.partner
+          : partner // ignore: cast_nullable_to_non_nullable
+              as String?,
+      scheduledDate: freezed == scheduledDate
+          ? _value.scheduledDate
+          : scheduledDate // ignore: cast_nullable_to_non_nullable
+              as String?,
+      car: freezed == car
+          ? _value.car
+          : car // ignore: cast_nullable_to_non_nullable
+              as String?,
+      carArrivalTime: freezed == carArrivalTime
+          ? _value.carArrivalTime
+          : carArrivalTime // ignore: cast_nullable_to_non_nullable
+              as String?,
+      clients: freezed == clients
+          ? _value._clients
+          : clients // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
+      trackIds: freezed == trackIds
+          ? _value._trackIds
+          : trackIds // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
     ));
   }
 }
@@ -119,29 +211,67 @@ class __$$StockPickingImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$StockPickingImpl implements _StockPicking {
-  const _$StockPickingImpl({this.jsonrpc, this.id, final List<Result>? result})
-      : _result = result;
+  const _$StockPickingImpl(
+      {@JsonKey(name: "display_name") this.displayName,
+      this.id,
+      @JsonKey(name: "state") this.state,
+      @JsonKey(name: "partner") this.partner,
+      @JsonKey(name: "scheduled_date") this.scheduledDate,
+      @JsonKey(name: "car") this.car,
+      @JsonKey(name: "car_arrival_time") this.carArrivalTime,
+      @JsonKey(name: "clients") final List<String>? clients,
+      @JsonKey(name: "track_ids") final List<String>? trackIds})
+      : _clients = clients,
+        _trackIds = trackIds;
 
   factory _$StockPickingImpl.fromJson(Map<String, dynamic> json) =>
       _$$StockPickingImplFromJson(json);
 
   @override
-  final String? jsonrpc;
+  @JsonKey(name: "display_name")
+  final String? displayName;
   @override
-  final dynamic id;
-  final List<Result>? _result;
+  final int? id;
   @override
-  List<Result>? get result {
-    final value = _result;
+  @JsonKey(name: "state")
+  final String? state;
+  @override
+  @JsonKey(name: "partner")
+  final String? partner;
+  @override
+  @JsonKey(name: "scheduled_date")
+  final String? scheduledDate;
+  @override
+  @JsonKey(name: "car")
+  final String? car;
+  @override
+  @JsonKey(name: "car_arrival_time")
+  final String? carArrivalTime;
+  final List<String>? _clients;
+  @override
+  @JsonKey(name: "clients")
+  List<String>? get clients {
+    final value = _clients;
     if (value == null) return null;
-    if (_result is EqualUnmodifiableListView) return _result;
+    if (_clients is EqualUnmodifiableListView) return _clients;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  final List<String>? _trackIds;
+  @override
+  @JsonKey(name: "track_ids")
+  List<String>? get trackIds {
+    final value = _trackIds;
+    if (value == null) return null;
+    if (_trackIds is EqualUnmodifiableListView) return _trackIds;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(value);
   }
 
   @override
   String toString() {
-    return 'StockPicking(jsonrpc: $jsonrpc, id: $id, result: $result)';
+    return 'StockPicking(displayName: $displayName, id: $id, state: $state, partner: $partner, scheduledDate: $scheduledDate, car: $car, carArrivalTime: $carArrivalTime, clients: $clients, trackIds: $trackIds)';
   }
 
   @override
@@ -149,18 +279,33 @@ class _$StockPickingImpl implements _StockPicking {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$StockPickingImpl &&
-            (identical(other.jsonrpc, jsonrpc) || other.jsonrpc == jsonrpc) &&
-            const DeepCollectionEquality().equals(other.id, id) &&
-            const DeepCollectionEquality().equals(other._result, _result));
+            (identical(other.displayName, displayName) ||
+                other.displayName == displayName) &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.state, state) || other.state == state) &&
+            (identical(other.partner, partner) || other.partner == partner) &&
+            (identical(other.scheduledDate, scheduledDate) ||
+                other.scheduledDate == scheduledDate) &&
+            (identical(other.car, car) || other.car == car) &&
+            (identical(other.carArrivalTime, carArrivalTime) ||
+                other.carArrivalTime == carArrivalTime) &&
+            const DeepCollectionEquality().equals(other._clients, _clients) &&
+            const DeepCollectionEquality().equals(other._trackIds, _trackIds));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      jsonrpc,
-      const DeepCollectionEquality().hash(id),
-      const DeepCollectionEquality().hash(_result));
+      displayName,
+      id,
+      state,
+      partner,
+      scheduledDate,
+      car,
+      carArrivalTime,
+      const DeepCollectionEquality().hash(_clients),
+      const DeepCollectionEquality().hash(_trackIds));
 
   @JsonKey(ignore: true)
   @override
@@ -178,368 +323,48 @@ class _$StockPickingImpl implements _StockPicking {
 
 abstract class _StockPicking implements StockPicking {
   const factory _StockPicking(
-      {final String? jsonrpc,
-      final dynamic id,
-      final List<Result>? result}) = _$StockPickingImpl;
+          {@JsonKey(name: "display_name") final String? displayName,
+          final int? id,
+          @JsonKey(name: "state") final String? state,
+          @JsonKey(name: "partner") final String? partner,
+          @JsonKey(name: "scheduled_date") final String? scheduledDate,
+          @JsonKey(name: "car") final String? car,
+          @JsonKey(name: "car_arrival_time") final String? carArrivalTime,
+          @JsonKey(name: "clients") final List<String>? clients,
+          @JsonKey(name: "track_ids") final List<String>? trackIds}) =
+      _$StockPickingImpl;
 
   factory _StockPicking.fromJson(Map<String, dynamic> json) =
       _$StockPickingImpl.fromJson;
 
   @override
-  String? get jsonrpc;
-  @override
-  dynamic get id;
-  @override
-  List<Result>? get result;
-  @override
-  @JsonKey(ignore: true)
-  _$$StockPickingImplCopyWith<_$StockPickingImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-Result _$ResultFromJson(Map<String, dynamic> json) {
-  return _Result.fromJson(json);
-}
-
-/// @nodoc
-mixin _$Result {
-  int? get id => throw _privateConstructorUsedError;
-  String? get name => throw _privateConstructorUsedError;
-  @JsonKey(name: 'partner_id')
-  List<dynamic>? get partnerId => throw _privateConstructorUsedError;
-  String? get state => throw _privateConstructorUsedError;
-  @JsonKey(name: 'scheduled_date')
-  String? get scheduledDate => throw _privateConstructorUsedError;
-  @JsonKey(name: 'date_deadline')
-  dynamic get dateDeadline => throw _privateConstructorUsedError;
-  @JsonKey(name: 'car_number')
-  dynamic get carNumber => throw _privateConstructorUsedError;
-  @JsonKey(name: 'car_arrival_time')
-  dynamic get carArrivalTime => throw _privateConstructorUsedError;
-  @JsonKey(name: 'create_uid')
-  List<dynamic>? get createUid => throw _privateConstructorUsedError;
-
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $ResultCopyWith<Result> get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $ResultCopyWith<$Res> {
-  factory $ResultCopyWith(Result value, $Res Function(Result) then) =
-      _$ResultCopyWithImpl<$Res, Result>;
-  @useResult
-  $Res call(
-      {int? id,
-      String? name,
-      @JsonKey(name: 'partner_id') List<dynamic>? partnerId,
-      String? state,
-      @JsonKey(name: 'scheduled_date') String? scheduledDate,
-      @JsonKey(name: 'date_deadline') dynamic dateDeadline,
-      @JsonKey(name: 'car_number') dynamic carNumber,
-      @JsonKey(name: 'car_arrival_time') dynamic carArrivalTime,
-      @JsonKey(name: 'create_uid') List<dynamic>? createUid});
-}
-
-/// @nodoc
-class _$ResultCopyWithImpl<$Res, $Val extends Result>
-    implements $ResultCopyWith<$Res> {
-  _$ResultCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? id = freezed,
-    Object? name = freezed,
-    Object? partnerId = freezed,
-    Object? state = freezed,
-    Object? scheduledDate = freezed,
-    Object? dateDeadline = freezed,
-    Object? carNumber = freezed,
-    Object? carArrivalTime = freezed,
-    Object? createUid = freezed,
-  }) {
-    return _then(_value.copyWith(
-      id: freezed == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int?,
-      name: freezed == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
-      partnerId: freezed == partnerId
-          ? _value.partnerId
-          : partnerId // ignore: cast_nullable_to_non_nullable
-              as List<dynamic>?,
-      state: freezed == state
-          ? _value.state
-          : state // ignore: cast_nullable_to_non_nullable
-              as String?,
-      scheduledDate: freezed == scheduledDate
-          ? _value.scheduledDate
-          : scheduledDate // ignore: cast_nullable_to_non_nullable
-              as String?,
-      dateDeadline: freezed == dateDeadline
-          ? _value.dateDeadline
-          : dateDeadline // ignore: cast_nullable_to_non_nullable
-              as dynamic,
-      carNumber: freezed == carNumber
-          ? _value.carNumber
-          : carNumber // ignore: cast_nullable_to_non_nullable
-              as dynamic,
-      carArrivalTime: freezed == carArrivalTime
-          ? _value.carArrivalTime
-          : carArrivalTime // ignore: cast_nullable_to_non_nullable
-              as dynamic,
-      createUid: freezed == createUid
-          ? _value.createUid
-          : createUid // ignore: cast_nullable_to_non_nullable
-              as List<dynamic>?,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$ResultImplCopyWith<$Res> implements $ResultCopyWith<$Res> {
-  factory _$$ResultImplCopyWith(
-          _$ResultImpl value, $Res Function(_$ResultImpl) then) =
-      __$$ResultImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {int? id,
-      String? name,
-      @JsonKey(name: 'partner_id') List<dynamic>? partnerId,
-      String? state,
-      @JsonKey(name: 'scheduled_date') String? scheduledDate,
-      @JsonKey(name: 'date_deadline') dynamic dateDeadline,
-      @JsonKey(name: 'car_number') dynamic carNumber,
-      @JsonKey(name: 'car_arrival_time') dynamic carArrivalTime,
-      @JsonKey(name: 'create_uid') List<dynamic>? createUid});
-}
-
-/// @nodoc
-class __$$ResultImplCopyWithImpl<$Res>
-    extends _$ResultCopyWithImpl<$Res, _$ResultImpl>
-    implements _$$ResultImplCopyWith<$Res> {
-  __$$ResultImplCopyWithImpl(
-      _$ResultImpl _value, $Res Function(_$ResultImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? id = freezed,
-    Object? name = freezed,
-    Object? partnerId = freezed,
-    Object? state = freezed,
-    Object? scheduledDate = freezed,
-    Object? dateDeadline = freezed,
-    Object? carNumber = freezed,
-    Object? carArrivalTime = freezed,
-    Object? createUid = freezed,
-  }) {
-    return _then(_$ResultImpl(
-      id: freezed == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int?,
-      name: freezed == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
-      partnerId: freezed == partnerId
-          ? _value._partnerId
-          : partnerId // ignore: cast_nullable_to_non_nullable
-              as List<dynamic>?,
-      state: freezed == state
-          ? _value.state
-          : state // ignore: cast_nullable_to_non_nullable
-              as String?,
-      scheduledDate: freezed == scheduledDate
-          ? _value.scheduledDate
-          : scheduledDate // ignore: cast_nullable_to_non_nullable
-              as String?,
-      dateDeadline: freezed == dateDeadline
-          ? _value.dateDeadline
-          : dateDeadline // ignore: cast_nullable_to_non_nullable
-              as dynamic,
-      carNumber: freezed == carNumber
-          ? _value.carNumber
-          : carNumber // ignore: cast_nullable_to_non_nullable
-              as dynamic,
-      carArrivalTime: freezed == carArrivalTime
-          ? _value.carArrivalTime
-          : carArrivalTime // ignore: cast_nullable_to_non_nullable
-              as dynamic,
-      createUid: freezed == createUid
-          ? _value._createUid
-          : createUid // ignore: cast_nullable_to_non_nullable
-              as List<dynamic>?,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$ResultImpl implements _Result {
-  const _$ResultImpl(
-      {this.id,
-      this.name,
-      @JsonKey(name: 'partner_id') final List<dynamic>? partnerId,
-      this.state,
-      @JsonKey(name: 'scheduled_date') this.scheduledDate,
-      @JsonKey(name: 'date_deadline') this.dateDeadline,
-      @JsonKey(name: 'car_number') this.carNumber,
-      @JsonKey(name: 'car_arrival_time') this.carArrivalTime,
-      @JsonKey(name: 'create_uid') final List<dynamic>? createUid})
-      : _partnerId = partnerId,
-        _createUid = createUid;
-
-  factory _$ResultImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ResultImplFromJson(json);
-
-  @override
-  final int? id;
-  @override
-  final String? name;
-  final List<dynamic>? _partnerId;
-  @override
-  @JsonKey(name: 'partner_id')
-  List<dynamic>? get partnerId {
-    final value = _partnerId;
-    if (value == null) return null;
-    if (_partnerId is EqualUnmodifiableListView) return _partnerId;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
-
-  @override
-  final String? state;
-  @override
-  @JsonKey(name: 'scheduled_date')
-  final String? scheduledDate;
-  @override
-  @JsonKey(name: 'date_deadline')
-  final dynamic dateDeadline;
-  @override
-  @JsonKey(name: 'car_number')
-  final dynamic carNumber;
-  @override
-  @JsonKey(name: 'car_arrival_time')
-  final dynamic carArrivalTime;
-  final List<dynamic>? _createUid;
-  @override
-  @JsonKey(name: 'create_uid')
-  List<dynamic>? get createUid {
-    final value = _createUid;
-    if (value == null) return null;
-    if (_createUid is EqualUnmodifiableListView) return _createUid;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
-
-  @override
-  String toString() {
-    return 'Result(id: $id, name: $name, partnerId: $partnerId, state: $state, scheduledDate: $scheduledDate, dateDeadline: $dateDeadline, carNumber: $carNumber, carArrivalTime: $carArrivalTime, createUid: $createUid)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ResultImpl &&
-            (identical(other.id, id) || other.id == id) &&
-            (identical(other.name, name) || other.name == name) &&
-            const DeepCollectionEquality()
-                .equals(other._partnerId, _partnerId) &&
-            (identical(other.state, state) || other.state == state) &&
-            (identical(other.scheduledDate, scheduledDate) ||
-                other.scheduledDate == scheduledDate) &&
-            const DeepCollectionEquality()
-                .equals(other.dateDeadline, dateDeadline) &&
-            const DeepCollectionEquality().equals(other.carNumber, carNumber) &&
-            const DeepCollectionEquality()
-                .equals(other.carArrivalTime, carArrivalTime) &&
-            const DeepCollectionEquality()
-                .equals(other._createUid, _createUid));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      id,
-      name,
-      const DeepCollectionEquality().hash(_partnerId),
-      state,
-      scheduledDate,
-      const DeepCollectionEquality().hash(dateDeadline),
-      const DeepCollectionEquality().hash(carNumber),
-      const DeepCollectionEquality().hash(carArrivalTime),
-      const DeepCollectionEquality().hash(_createUid));
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ResultImplCopyWith<_$ResultImpl> get copyWith =>
-      __$$ResultImplCopyWithImpl<_$ResultImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$ResultImplToJson(
-      this,
-    );
-  }
-}
-
-abstract class _Result implements Result {
-  const factory _Result(
-          {final int? id,
-          final String? name,
-          @JsonKey(name: 'partner_id') final List<dynamic>? partnerId,
-          final String? state,
-          @JsonKey(name: 'scheduled_date') final String? scheduledDate,
-          @JsonKey(name: 'date_deadline') final dynamic dateDeadline,
-          @JsonKey(name: 'car_number') final dynamic carNumber,
-          @JsonKey(name: 'car_arrival_time') final dynamic carArrivalTime,
-          @JsonKey(name: 'create_uid') final List<dynamic>? createUid}) =
-      _$ResultImpl;
-
-  factory _Result.fromJson(Map<String, dynamic> json) = _$ResultImpl.fromJson;
-
+  @JsonKey(name: "display_name")
+  String? get displayName;
   @override
   int? get id;
   @override
-  String? get name;
-  @override
-  @JsonKey(name: 'partner_id')
-  List<dynamic>? get partnerId;
-  @override
+  @JsonKey(name: "state")
   String? get state;
   @override
-  @JsonKey(name: 'scheduled_date')
+  @JsonKey(name: "partner")
+  String? get partner;
+  @override
+  @JsonKey(name: "scheduled_date")
   String? get scheduledDate;
   @override
-  @JsonKey(name: 'date_deadline')
-  dynamic get dateDeadline;
+  @JsonKey(name: "car")
+  String? get car;
   @override
-  @JsonKey(name: 'car_number')
-  dynamic get carNumber;
+  @JsonKey(name: "car_arrival_time")
+  String? get carArrivalTime;
   @override
-  @JsonKey(name: 'car_arrival_time')
-  dynamic get carArrivalTime;
+  @JsonKey(name: "clients")
+  List<String>? get clients;
   @override
-  @JsonKey(name: 'create_uid')
-  List<dynamic>? get createUid;
+  @JsonKey(name: "track_ids")
+  List<String>? get trackIds;
   @override
   @JsonKey(ignore: true)
-  _$$ResultImplCopyWith<_$ResultImpl> get copyWith =>
+  _$$StockPickingImplCopyWith<_$StockPickingImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -1,36 +1,33 @@
-
-import 'package:flutter/cupertino.dart';
+import 'package:auto_route/auto_route.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:warhouse_qr_code/common/base/base_page.dart';
-import 'package:warhouse_qr_code/common/extensions/text_extensions.dart';
-import 'package:auto_route/auto_route.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter/material.dart';
 import 'package:warhouse_qr_code/common/router/app_router.dart';
-import 'package:warhouse_qr_code/features/operations/cubit/operations_cubit.dart';
-import 'package:warhouse_qr_code/features/operations/cubit/operations_state.dart';
+import 'package:warhouse_qr_code/features/category/cubit/category_cubit.dart';
+import 'package:warhouse_qr_code/features/category/cubit/category_state.dart';
 
 @RoutePage()
-class OperationsPage
-    extends
-        BasePage<OperationsCubit, OperationsBuildable, OperationsListenable> {
-  const OperationsPage({super.key});
+class CategoryPage
+    extends BasePage<CategoryCubit, CategoryBuildable, CategoryListenable> {
+  const CategoryPage({super.key});
 
   @override
-  void init(BuildContext context) {
-    final cubit = context.read<OperationsCubit>();
-
-    cubit.websocket();
-
-    cubit.getHomeApi();
-    debugPrint("💕${cubit.storage.employee_id.call()}");
-    super.init(context);
-  }
-
-  @override
-  Widget builder(BuildContext context, OperationsBuildable state) {
-    final cubit = context.read<OperationsCubit>();
-    final list = state.warehouse?.result ?? [];
+  Widget builder(BuildContext context, CategoryBuildable state) {
+    final List<Map<String, String>> categories = [
+      {
+        "title": "View Plans",
+        "image": "assets/images/view_plans.png",
+      },
+      {
+        "title": "Stock",
+        "image": "assets/images/stock.png",
+      },
+      {
+        "title": "Operations",
+        "image": "assets/images/operation.png",
+      },
+    ];
+    final cubit = context.read<CategoryCubit>();
 
     return Scaffold(
       appBar: AppBar(
@@ -204,103 +201,68 @@ class OperationsPage
           ),
         ),
       ),
-      body: state.loading
-          ? const Center(child: CupertinoActivityIndicator(color: Colors.black))
-          : SafeArea(
-              child: Padding(
-                padding: REdgeInsets.all(16),
-                child: RefreshIndicator(
-                  onRefresh: () async {
-                    cubit.getHomeApi();
-                  },
-                  child: CustomScrollView(
-                    physics: const AlwaysScrollableScrollPhysics(),
-                    slivers: [
+      body: ListView.builder(
+        padding: const EdgeInsets.all(16),
+        itemCount: categories.length,
+        itemBuilder: (context, index) {
+          final item = categories[index];
 
-                      if (list.isEmpty)
-                        SliverFillRemaining(
-                          hasScrollBody: false,
-                          child: Center(
-                            child: Column(
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                Icon(
-                                  Icons.inbox_outlined,
-                                  size: 64.r,
-                                  color: Colors.grey,
-                                ),
-                                12.verticalSpace,
-                                'Ma’lumot topilmadi'
-                                    .s(16.r)
-                                    .w(500)
-                                    .c(Colors.grey),
-                              ],
-                            ),
-                          ),
-                        )
-                      else
-                        SliverList(
-                          delegate: SliverChildBuilderDelegate((
-                            context,
-                            index,
-                          ) {
-                            final item = list[index];
-                            return Container(
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 8,
-                                vertical: 8,
-                              ),
-                              margin: REdgeInsets.only(bottom: 8),
-                              decoration: BoxDecoration(
-                                border: Border.all(
-                                  color: Colors.grey.shade300,
-                                  width: 1,
-                                ),
-                                borderRadius: BorderRadius.circular(10.r),
-                              ),
-                              child: ListTile(
-                                contentPadding: EdgeInsets.zero,
-                                title:
-                                    (item.display_name
-                                                ?.split(':')
-                                                .last
-                                                .trim() ??
-                                            '')
-                                        .s(17.r)
-                                        .w(500),
-                                subtitle: item.warehouse_id?[1]
-                                    .toString()
-                                    .s(14.r)
-                                    .w(400),
-                                trailing: Container(
-                                  padding: REdgeInsets.symmetric(
-                                    horizontal: 10,
-                                    vertical: 4,
-                                  ),
-                                  decoration: BoxDecoration(
-                                    color: Colors.grey.shade200,
-                                    borderRadius: BorderRadius.circular(20.r),
-                                  ),
-                                  child: "${item.count_picking_ready}"
-                                      .s(12.r)
-                                      .c(Colors.black87)
-                                      .w(500),
-                                ),
-                                onTap: () => context.router.push(
-                                  LocationsRoute(
-                                    name: 'My Company: PICK',
-                                    id: item.id ?? 0,
-                                  ),
-                                ),
-                              ),
-                            );
-                          }, childCount: list.length),
+          return Padding(
+            padding: const EdgeInsets.only(bottom: 12),
+            child: GestureDetector(
+              onTap: (){
+                switch (index) {
+                  case 0:
+                    context.router.push(const ViewPlansRoute());
+                    break;
+                  case 1:
+                    context.router.push(const OperationsRoute());
+                    break;
+                  case 2:
+                    context.router.push(const OperationsRoute());
+                    break;
+                }
+              },
+              child: Card(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(16),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(12),
+                  child: Row(
+                    children: [
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(12),
+                        child: Image.asset(
+                          item["image"]!,
+                          width: 70,
+                          height: 70,
+                          fit: BoxFit.cover,
                         ),
+                      ),
+
+                      const SizedBox(width: 16),
+
+                      Expanded(
+                        child: Text(
+                          item["title"]!,
+                          style: const TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      ),
+
+                      const Icon(Icons.arrow_forward_ios, size: 18),
                     ],
                   ),
                 ),
               ),
             ),
+          );
+        },
+      ),
     );
   }
+
 }

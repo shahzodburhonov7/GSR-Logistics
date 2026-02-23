@@ -17,7 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$LocationsBuildable {
   bool get loading => throw _privateConstructorUsedError;
-  StockPicking? get stockPicking => throw _privateConstructorUsedError;
+  List<StockPicking>? get stockPicking => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $LocationsBuildableCopyWith<LocationsBuildable> get copyWith =>
@@ -30,9 +30,7 @@ abstract class $LocationsBuildableCopyWith<$Res> {
           LocationsBuildable value, $Res Function(LocationsBuildable) then) =
       _$LocationsBuildableCopyWithImpl<$Res, LocationsBuildable>;
   @useResult
-  $Res call({bool loading, StockPicking? stockPicking});
-
-  $StockPickingCopyWith<$Res>? get stockPicking;
+  $Res call({bool loading, List<StockPicking>? stockPicking});
 }
 
 /// @nodoc
@@ -59,20 +57,8 @@ class _$LocationsBuildableCopyWithImpl<$Res, $Val extends LocationsBuildable>
       stockPicking: freezed == stockPicking
           ? _value.stockPicking
           : stockPicking // ignore: cast_nullable_to_non_nullable
-              as StockPicking?,
+              as List<StockPicking>?,
     ) as $Val);
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $StockPickingCopyWith<$Res>? get stockPicking {
-    if (_value.stockPicking == null) {
-      return null;
-    }
-
-    return $StockPickingCopyWith<$Res>(_value.stockPicking!, (value) {
-      return _then(_value.copyWith(stockPicking: value) as $Val);
-    });
   }
 }
 
@@ -84,10 +70,7 @@ abstract class _$$LocationsBuildableImplCopyWith<$Res>
       __$$LocationsBuildableImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({bool loading, StockPicking? stockPicking});
-
-  @override
-  $StockPickingCopyWith<$Res>? get stockPicking;
+  $Res call({bool loading, List<StockPicking>? stockPicking});
 }
 
 /// @nodoc
@@ -110,9 +93,9 @@ class __$$LocationsBuildableImplCopyWithImpl<$Res>
           : loading // ignore: cast_nullable_to_non_nullable
               as bool,
       stockPicking: freezed == stockPicking
-          ? _value.stockPicking
+          ? _value._stockPicking
           : stockPicking // ignore: cast_nullable_to_non_nullable
-              as StockPicking?,
+              as List<StockPicking>?,
     ));
   }
 }
@@ -120,13 +103,22 @@ class __$$LocationsBuildableImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$LocationsBuildableImpl implements _LocationsBuildable {
-  const _$LocationsBuildableImpl({this.loading = false, this.stockPicking});
+  const _$LocationsBuildableImpl(
+      {this.loading = false, final List<StockPicking>? stockPicking})
+      : _stockPicking = stockPicking;
 
   @override
   @JsonKey()
   final bool loading;
+  final List<StockPicking>? _stockPicking;
   @override
-  final StockPicking? stockPicking;
+  List<StockPicking>? get stockPicking {
+    final value = _stockPicking;
+    if (value == null) return null;
+    if (_stockPicking is EqualUnmodifiableListView) return _stockPicking;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
 
   @override
   String toString() {
@@ -139,12 +131,13 @@ class _$LocationsBuildableImpl implements _LocationsBuildable {
         (other.runtimeType == runtimeType &&
             other is _$LocationsBuildableImpl &&
             (identical(other.loading, loading) || other.loading == loading) &&
-            (identical(other.stockPicking, stockPicking) ||
-                other.stockPicking == stockPicking));
+            const DeepCollectionEquality()
+                .equals(other._stockPicking, _stockPicking));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, loading, stockPicking);
+  int get hashCode => Object.hash(
+      runtimeType, loading, const DeepCollectionEquality().hash(_stockPicking));
 
   @JsonKey(ignore: true)
   @override
@@ -157,12 +150,12 @@ class _$LocationsBuildableImpl implements _LocationsBuildable {
 abstract class _LocationsBuildable implements LocationsBuildable {
   const factory _LocationsBuildable(
       {final bool loading,
-      final StockPicking? stockPicking}) = _$LocationsBuildableImpl;
+      final List<StockPicking>? stockPicking}) = _$LocationsBuildableImpl;
 
   @override
   bool get loading;
   @override
-  StockPicking? get stockPicking;
+  List<StockPicking>? get stockPicking;
   @override
   @JsonKey(ignore: true)
   _$$LocationsBuildableImplCopyWith<_$LocationsBuildableImpl> get copyWith =>

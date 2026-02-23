@@ -8,7 +8,6 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:warhouse_qr_code/common/extensions/text_extensions.dart';
 import 'package:warhouse_qr_code/common/widgets/custom_button.dart';
-import 'package:warhouse_qr_code/common/widgets/flush_bar.dart';
 import 'package:warhouse_qr_code/common/widgets/scale_animation.dart';
 import 'package:warhouse_qr_code/features/products/cubit/products_cubit.dart';
 import 'package:warhouse_qr_code/features/products/cubit/products_state.dart';

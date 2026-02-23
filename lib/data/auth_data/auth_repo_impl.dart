@@ -1,5 +1,7 @@
 import 'package:warhouse_qr_code/data/auth_data/auth_api.dart';
 import 'package:warhouse_qr_code/domain/auth/auth_repo.dart';
+import 'package:warhouse_qr_code/domain/model/get_line/get_line.dart';
+import 'package:warhouse_qr_code/domain/model/get_plans/get_plans.dart';
 import 'package:warhouse_qr_code/domain/model/products_list/products_list.dart';
 import 'package:warhouse_qr_code/domain/model/stock_picking/stock_picking.dart';
 import 'package:warhouse_qr_code/domain/model/storage/storage.dart';
@@ -87,9 +89,14 @@ class AuthRepoImpl extends AuthRepository {
   }
 
   @override
-  Future<StockPicking> stockPicking({required int id}) async {
+  Future<List<StockPicking>> stockPicking({required int id}) async {
     final res = await _api.stockPicking(id: id);
-    return StockPicking.fromJson(res.data);
+    final List list = res.data;
+
+    final stockPickings = list
+        .map((e) => StockPicking.fromJson(e as Map<String, dynamic>))
+        .toList();
+    return stockPickings;
   }
 
   @override
@@ -110,5 +117,17 @@ class AuthRepoImpl extends AuthRepository {
   @override
   Future<void> validate() async {
     await _api.validation();
+  }
+
+  @override
+  Future<GetPlans> getPlans({required String state}) async {
+    final res = await _api.getPlans(state: state);
+    return GetPlans.fromJson(res.data);
+  }
+
+  @override
+  Future<GetLine> getLine({required int id}) async {
+    final res = await _api.getPlansLine(planId: id);
+    return GetLine.fromJson(res.data);
   }
 }

@@ -19,7 +19,7 @@ class SplashPage
         context.router.replaceAll([LoginRoute()]);
         break;
       case SplashEffect.home:
-        context.router.replaceAll([OperationsRoute()]);
+        context.router.replaceAll([CategoryRoute()]);
         break;
     }
   }

@@ -20,7 +20,10 @@ class AuthInterceptor extends QueuedInterceptor {
     final needSession =
         options.path.contains('/web/dataset/call_kw') ||
         options.path.contains('/api/scan') ||
-        options.path.contains('/api/validate');
+        options.path.contains('/api/validate')||
+        options.path.contains('/api/orders')
+
+    ;
 
     if (needSession && sessionId != null) {
       options.headers.addAll({
